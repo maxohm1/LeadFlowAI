@@ -14,7 +14,7 @@ The system collects lead information, enriches company data using publicly avail
 - Google Sheets lead logging
 - Google Drive PDF archival
 
-## 🏗️ Architecture
+##  System Design
 
 ```
 ┌─────────────────┐     POST /api/leads     ┌──────────────────┐
@@ -50,27 +50,14 @@ The system collects lead information, enriches company data using publicly avail
 ```
 
 
+## No need to setup Credential Key
+Here are all the credential key are already setup - 
+GEMINI_API_KEY, SMTP_USER, SMTP_PASS, GOOGLE_SHEETS_ID, GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_DRIVE_FOLDER_ID. you can also use own credentail key by replacing your credentail in .env file
+
+Warning: Please don't use this creadential key for personal use. it automatically close after 7 days.
 
 
-| Variable | Description | How to Get |
-|:---|:---|:---|
-| `GEMINI_API_KEY` | Google Gemini API key | [Google AI Studio](https://aistudio.google.com/apikey) — free |
-| `SMTP_USER` | Gmail address | Your Gmail account |
-| `SMTP_PASS` | Gmail App Password | [Google App Passwords](https://myaccount.google.com/apppasswords) (requires 2FA) |
-
-
-### Optional (Bonus Features)
-
-| Variable | Description |
-|:---|:---|
-| `GOOGLE_SHEETS_ID` | Your Google Sheets spreadsheet ID |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Service account email |
-| `GOOGLE_PRIVATE_KEY` | Service account private key |
-| `GOOGLE_DRIVE_FOLDER_ID` | Drive folder for PDF archives |
-
----
-
-## 🔄 How It Works
+##  Working Process
 
 ### Pipeline Flow (After Form Submission)
 
@@ -83,20 +70,9 @@ The system collects lead information, enriches company data using publicly avail
 7. **Sheets Logging** — Lead data is appended to Google Sheets (if configured)
 8. **Drive Archive** — PDF is uploaded to Google Drive (if configured)
 
-### Error Handling Strategy
 
-| Scenario | Behavior |
-|:---|:---|
-| Website URL not provided | Skip scraping, rely on AI research |
-| Website scraping fails | Log warning, proceed with AI-only research |
-| Gemini API fails | Use fallback template with generic insights |
-| Both scraping + AI fail | Generate basic report with available data |
-| Email delivery fails | Retry once; log failure status |
-| Sheets/Drive fail | Log warning; never blocks the main pipeline |
 
----
-
-## 🏆 Bonus Features
+##  Bonus Features
 
 ### Google Sheets Logging
 - Automatically appends each lead's data to a Google Sheet
