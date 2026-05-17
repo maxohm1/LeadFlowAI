@@ -4,6 +4,8 @@ LeadFlowAI is an automated lead intelligence platform that generates personalize
 
 The system collects lead information, enriches company data using publicly available sources, generates audit reports, and delivers the final report via email through a fully automated workflow.
 
+Click here to check 👉 - https://automail-topaz.vercel.app/
+
 
 ## Video
 https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
@@ -84,7 +86,14 @@ https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
 
 ## No need to setup Credential Key
 Here are all the credential key are already setup - 
-GEMINI_API_KEY, SMTP_USER, SMTP_PASS, GOOGLE_SHEETS_ID, GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_DRIVE_FOLDER_ID. you can also use own credentail key by replacing your credentail in .env file
+GEMINI_API_KEY
+SMTP_USER
+SMTP_PASS
+GOOGLE_SHEETS_ID
+GOOGLE_SERVICE_ACCOUNT_EMAIL
+GOOGLE_PRIVATE_KEY
+GOOGLE_DRIVE_FOLDER_ID. 
+you can also use own credentail key by replacing your credentail in .env file
 
 Warning: Please don't use this creadential key for personal use. it automatically close after 7 days.
 
@@ -119,4 +128,25 @@ Warning: Please don't use this creadential key for personal use. it automaticall
 
 ---
 
+
+
+<div align="center">
+
+**This Assesement take so much time please have a look onces<img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/2764.gif" height="30" alt="love" />CheckOut Out More <img src="https://github.com/maxohm1/OneAI-ScreenShot/blob/main/200w.gif" height="40" />**
+
+<br><br>
+
+<a href="https://www.linkedin.com/in/om-prakash-mandal-a253a12a6/" target="_blank">
+    <img src="https://github.com/maxohm1/OneAI-ScreenShot/blob/main/372102050_LINKEDIN_ICON_TRANSPARENT_1080.gif" width="150" />
+</a>
+
+<a href="https://play.google.com/store/apps/details?id=max.ohm.oneai&hl=en" target="_blank">
+    <img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="100" />
+</a>
+
+<a href="https://github.com/Android-by-Kotlin/OneAI-2.0" target="_blank">
+    <img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="140" />
+</a>
+
+</div>
 
