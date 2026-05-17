@@ -32,16 +32,7 @@ async function handleLeadSubmission(req, res) {
 
   logger.pipeline(`New lead received: ${sanitized.fullName} from ${sanitized.companyName}`);
 
-  // Send immediate response to the client
-  res.status(202).json({
-    success: true,
-    message: `Thank you, ${sanitized.fullName}! We're preparing a personalized business intelligence report for ${sanitized.companyName}. You'll receive it at ${sanitized.email} shortly.`,
-    lead: {
-      fullName: sanitized.fullName,
-      company: sanitized.companyName,
-      email: sanitized.email,
-    },
-  });
+  // ── Process pipeline synchronously so Vercel doesn't kill it ──
 
   // ── Process pipeline asynchronously ──
   let reportStatus = 'Failed';
@@ -78,10 +69,26 @@ async function handleLeadSubmission(req, res) {
     }
 
     logger.pipeline(`✨ Pipeline complete for ${sanitized.companyName} — Report: ${reportStatus}, Email: ${emailStatus}`);
+    
+    // Send success response AFTER pipeline completes
+    res.status(200).json({
+      success: true,
+      message: `Thank you, ${sanitized.fullName}! Your personalized business intelligence report for ${sanitized.companyName} has been generated and sent to ${sanitized.email}.`,
+      lead: {
+        fullName: sanitized.fullName,
+        company: sanitized.companyName,
+        email: sanitized.email,
+      },
+    });
   } catch (error) {
     logger.error(MODULE, `Pipeline error: ${error.message}`);
     // Still try to log to sheets even on failure
     await logToSheets(sanitized, reportStatus, emailStatus).catch(() => {});
+    
+    res.status(500).json({
+      success: false,
+      message: `An error occurred while processing your request: ${error.message}`,
+    });
   }
 }
 

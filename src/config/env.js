@@ -28,7 +28,7 @@ const config = {
   sheets: {
     spreadsheetId: process.env.GOOGLE_SHEETS_ID || '',
     serviceAccountEmail: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || '',
-    privateKey: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+    privateKey: (process.env.GOOGLE_PRIVATE_KEY || '').replace(/^"|"$/g, '').replace(/\\n/g, '\n'),
   },
 
   // Google Drive (Bonus)
