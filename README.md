@@ -4,6 +4,38 @@ LeadFlowAI is an automated lead intelligence platform that generates personalize
 
 The system collects lead information, enriches company data using publicly available sources, generates audit reports, and delivers the final report via email through a fully automated workflow.
 
+
+## Video
+https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
+
+## Screenshots
+
+
+
+---
+
+### Data Entry
+![Screenshot 2](https://github.com/user-attachments/assets/6a9a78c1-2505-40e5-b3b9-b96d05aeab01)
+
+---
+### After Send Mail
+![Screensh](https://github.com/user-attachments/assets/5f34abd6-0903-462c-84da-40b6927e88c0)
+
+---
+
+### Auto Send on Gmail
+![](https://github.com/user-attachments/assets/2b8cd309-722d-49af-b1c0-81fcf8213f28)
+
+---
+
+### Google Sheet Live Update
+![](https://github.com/user-attachments/assets/c767cabd-c924-4516-9529-73642f2845dd)
+
+---
+
+### PDF First Page
+![](https://github.com/user-attachments/assets/9496c607-e756-470d-8ce6-da7ea149993c)
+
 ## Features
 
 - Lead intake and validation
