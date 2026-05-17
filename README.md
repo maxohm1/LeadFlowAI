@@ -114,7 +114,7 @@ in my case Drive folder is not working due to Quota limitation.
 
 <div align="center">
 
-**This Assesement take so much time please have a look onces<img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/2764.gif" height="30" alt="love" />CheckOut Out More <img src="https://github.com/maxohm1/OneAI-ScreenShot/blob/main/200w.gif" height="40" />**
+**This Assesement takes please have a look onces<img src="https://images.emojiterra.com/google/noto-emoji/animated-emoji/2764.gif" height="30" alt="love" />CheckOut Out More <img src="https://github.com/maxohm1/OneAI-ScreenShot/blob/main/200w.gif" height="40" />**
 
 <br><br>
 
