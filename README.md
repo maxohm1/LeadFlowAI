@@ -125,6 +125,7 @@ Warning: Please don't use this creadential key for personal use. it automaticall
 - Uploads each generated PDF to a specified Google Drive folder
 - Files named: `{CompanyName}_Audit_Report_{Date}.pdf`
 - **Setup:** Share your Drive folder with the service account email
+in my case Drive folder is not working due to Quota limitation.
 
 ---
 
