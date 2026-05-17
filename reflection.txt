@@ -1,0 +1,24 @@
+# SimplifIQ Intern Assessment Reflection
+
+## 1. Approach & Architecture
+For this assignment, I built "LeadFlowAI", a modern, end-to-end automated lead intake system. I chose a Node.js/Express backend because it provides a lightweight, non-blocking architecture ideal for handling multiple asynchronous external API calls (Scraping, AI, PDF Generation, Email, and Google Sheets). The frontend was built with vanilla HTML/CSS/JS with a focus on a premium, responsive "glassmorphism" UI to provide an excellent user experience.
+
+## 2. AI Implementation & Usage
+I utilized the `@google/genai` SDK with the `gemini-2.5-flash` model. Instead of relying purely on the AI's internal knowledge, I implemented a tiered approach: 
+1. First, the system dynamically scrapes the provided company's actual website.
+2. The raw website text is fed into the Gemini model as context.
+This ensures the generated Business Intelligence report is highly accurate, grounded in real-time data, and tailored to the specific lead rather than generating generic responses. 
+
+During the development process, I also used AI coding assistants to accelerate boilerplate generation, design the CSS UI, and troubleshoot tricky deployment bugs.
+
+## 3. Challenges & Tradeoffs
+Deploying a complex pipeline to Vercel's serverless environment presented significant challenges:
+* **Puppeteer Size Limits**: Standard Puppeteer includes a full Chromium browser which exceeds Vercel's 50MB function limit. I solved this by implementing `@sparticuz/chromium` specifically for the production environment.
+* **Serverless Execution Halts**: In a standard Node environment, I would send a fast `202 Accepted` response and process the PDF/Emails in the background. However, Vercel immediately freezes the container upon response. I traded off the immediate UI response time by making the pipeline fully synchronous so Vercel wouldn't kill the function early.
+* **Google Drive Quotas**: Implementing the bonus Google Drive feature revealed that personal `@gmail.com` Service Accounts do not have storage quotas. The code is fully implemented and works for enterprise Workspace accounts, but I added graceful error handling to ensure personal account failures wouldn't break the main pipeline.
+
+## 4. Future Improvements
+If I had more time or was building this for production scale, I would:
+1. **Decouple the Architecture**: Move the heavy PDF generation and AI processing to a background worker queue (e.g., Redis + BullMQ) so the frontend gets an instant response.
+2. **Caching**: Implement a database (like PostgreSQL or MongoDB) to cache company reports so subsequent leads from the same company don't trigger redundant AI and scraping API calls.
+3. **Advanced Scraping**: Integrate a proxy rotation service to bypass anti-bot protections on more complex corporate websites.
