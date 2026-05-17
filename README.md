@@ -84,18 +84,19 @@ https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
 ```
 
 
-## No need to setup Credential Key
-Here are all the credential key are already setup - 
-GEMINI_API_KEY
-SMTP_USER
-SMTP_PASS
-GOOGLE_SHEETS_ID
-GOOGLE_SERVICE_ACCOUNT_EMAIL
-GOOGLE_PRIVATE_KEY
-GOOGLE_DRIVE_FOLDER_ID. 
-you can also use own credentail key by replacing your credentail in .env file
+## Environment Variables(No need to setup Credential Key)
 
-Warning: Please don't use this creadential key for personal use. it automatically close after 7 days.
+The following credential keys are already configured:
+
+- GEMINI_API_KEY
+- SMTP_USER
+- SMTP_PASS
+- GOOGLE_SHEETS_ID
+- GOOGLE_SERVICE_ACCOUNT_EMAIL
+- GOOGLE_PRIVATE_KEY
+- GOOGLE_DRIVE_FOLDER_ID
+
+You can also use your own credential keys by replacing them in the `.env` file.
 
 
 ##  Working Process
