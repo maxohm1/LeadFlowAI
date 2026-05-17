@@ -4,8 +4,11 @@ LeadFlowAI is an automated lead intelligence platform that generates personalize
 
 The system collects lead information, enriches company data using publicly available sources, generates audit reports, and delivers the final report via email through a fully automated workflow.
 
-Click here to access Live Website 👉 - https://automail-topaz.vercel.app/
-Track Live Google sheets data entry 👉- https://docs.google.com/spreadsheets/d/1a0Rr13VcdPZUOjTUP-7tgs300EsfjUcG_l7QJ6vgRjk/edit?gid=0#gid=0
+Click here to access Live Website 👇 
+https://automail-topaz.vercel.app/
+
+Track Live Google sheets data entry 👇  
+https://docs.google.com/spreadsheets/d/1a0Rr13VcdPZUOjTUP-7tgs300EsfjUcG_l7QJ6vgRjk/edit?gid=0#gid=0
 
 
 
