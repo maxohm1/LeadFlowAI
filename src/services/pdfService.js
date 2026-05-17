@@ -2,14 +2,15 @@
  * PDF Generation Service
  * Uses Puppeteer to render HTML templates into professional PDF documents
  */
-const puppeteer = require('puppeteer');
+const puppeteer = process.env.VERCEL ? require('puppeteer-core') : require('puppeteer');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const { generateReportHTML } = require('../templates/reportTemplate');
 const logger = require('../utils/logger');
 
 const MODULE = 'PDF';
-const REPORTS_DIR = path.resolve(__dirname, '../../reports');
+const REPORTS_DIR = process.env.VERCEL ? os.tmpdir() : path.resolve(__dirname, '../../reports');
 
 // Ensure reports directory exists
 if (!fs.existsSync(REPORTS_DIR)) {
@@ -32,10 +33,21 @@ async function generatePDF(enrichedData) {
 
   let browser;
   try {
-    browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-    });
+    if (process.env.VERCEL) {
+      const sparticuz = require('@sparticuz/chromium');
+      browser = await puppeteer.launch({
+        args: sparticuz.args,
+        defaultViewport: sparticuz.defaultViewport,
+        executablePath: await sparticuz.executablePath(),
+        headless: sparticuz.headless,
+        ignoreHTTPSErrors: true,
+      });
+    } else {
+      browser = await puppeteer.launch({
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      });
+    }
 
     const page = await browser.newPage();
     const html = generateReportHTML(enrichedData);

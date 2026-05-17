@@ -36,24 +36,26 @@ app.use((err, req, res, next) => {
 // ── Start Server ──
 const PORT = config.port;
 
-app.listen(PORT, () => {
-  console.log('\n');
-  console.log('  ╔═══════════════════════════════════════════════╗');
-  console.log('  ║                                               ║');
-  console.log('  ║      🚀 LeadFlowAI Server is Running!         ║');
-  console.log(`  ║      📡 http://localhost:${PORT}                  ║`);
-  console.log('  ║                                               ║');
-  console.log('  ╚═══════════════════════════════════════════════╝');
-  console.log('\n');
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log('\n');
+    console.log('  ╔═══════════════════════════════════════════════╗');
+    console.log('  ║                                               ║');
+    console.log('  ║      🚀 LeadFlowAI Server is Running!         ║');
+    console.log(`  ║      📡 http://localhost:${PORT}                  ║`);
+    console.log('  ║                                               ║');
+    console.log('  ╚═══════════════════════════════════════════════╝');
+    console.log('\n');
 
-  // Validate configuration
-  const { warnings, errors } = validateConfig();
-  errors.forEach(e => logger.error('Config', e));
-  warnings.forEach(w => logger.warn('Config', w));
+    // Validate configuration
+    const { warnings, errors } = validateConfig();
+    errors.forEach(e => logger.error('Config', e));
+    warnings.forEach(w => logger.warn('Config', w));
 
-  if (errors.length === 0) {
-    logger.success('Config', 'All required configurations are set.');
-  }
-});
+    if (errors.length === 0) {
+      logger.success('Config', 'All required configurations are set.');
+    }
+  });
+}
 
 module.exports = app;

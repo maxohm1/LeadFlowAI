@@ -19,6 +19,7 @@
   "dependencies": {
     "@google/genai": "^2.3.0",
     "@google/generative-ai": "^0.24.1",
+    "@sparticuz/chromium": "^147.0.0",
     "axios": "^1.16.1",
     "cheerio": "^1.2.0",
     "cors": "^2.8.6",
@@ -26,6 +27,7 @@
     "express": "^5.2.1",
     "googleapis": "^171.4.0",
     "nodemailer": "^8.0.7",
-    "puppeteer": "^25.0.2"
+    "puppeteer": "^25.0.2",
+    "puppeteer-core": "^25.0.2"
   }
 }
