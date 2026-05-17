@@ -21,13 +21,23 @@ function getAuth() {
       break;
     }
   }
-  
-  if (!keyFile) {
-     throw new Error("No service account JSON file found.");
+  if (keyFile) {
+    return new google.auth.GoogleAuth({
+      keyFile: keyFile,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets']
+    });
+  }
+
+  // Fallback to environment variables (Vercel)
+  if (!config.sheets.serviceAccountEmail || !config.sheets.privateKey) {
+    throw new Error("Missing Google Service Account credentials.");
   }
 
   return new google.auth.GoogleAuth({
-    keyFile: keyFile,
+    credentials: {
+      client_email: config.sheets.serviceAccountEmail,
+      private_key: config.sheets.privateKey
+    },
     scopes: ['https://www.googleapis.com/auth/spreadsheets']
   });
 }
