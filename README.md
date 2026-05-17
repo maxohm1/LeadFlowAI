@@ -7,36 +7,42 @@ The system collects lead information, enriches company data using publicly avail
 Click here to check 👉 - https://automail-topaz.vercel.app/
 
 
-## Video
-https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
-
-## Screenshots
 
 
+## Screenshots and Video
+---
+
+<table>
+<tr>
+<td align="center">
+<b>Demo Video</b><br>
+<video src="https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83" controls width="400"></video>
+</td>
+
+<td align="center">
+<b>PDF First Page</b><br>
+<img src="https://github.com/user-attachments/assets/9496c607-e756-470d-8ce6-da7ea149993c" width="400"/>
+</td>
+</tr>
+</table>
+
+| Data Entry | After Send Mail |
+|------------|------------------|
+| ![Screenshot 2](https://github.com/user-attachments/assets/6a9a78c1-2505-40e5-b3b9-b96d05aeab01) | ![Screensh](https://github.com/user-attachments/assets/5f34abd6-0903-462c-84da-40b6927e88c0) |
 
 ---
 
-### Data Entry
-![Screenshot 2](https://github.com/user-attachments/assets/6a9a78c1-2505-40e5-b3b9-b96d05aeab01)
-
----
-### After Send Mail
-![Screensh](https://github.com/user-attachments/assets/5f34abd6-0903-462c-84da-40b6927e88c0)
+| Auto Send on Gmail | Google Sheet Live Update |
+|--------------------|--------------------------|
+| ![](https://github.com/user-attachments/assets/2b8cd309-722d-49af-b1c0-81fcf8213f28) | ![](https://github.com/user-attachments/assets/c767cabd-c924-4516-9529-73642f2845dd) |
 
 ---
 
-### Auto Send on Gmail
-![](https://github.com/user-attachments/assets/2b8cd309-722d-49af-b1c0-81fcf8213f28)
+##  System Design
+
+![](https://github.com/user-attachments/assets/3bccada3-f793-49c9-a1ff-61432f1e6ec7)
 
 ---
-
-### Google Sheet Live Update
-![](https://github.com/user-attachments/assets/c767cabd-c924-4516-9529-73642f2845dd)
-
----
-
-### PDF First Page
-![](https://github.com/user-attachments/assets/9496c607-e756-470d-8ce6-da7ea149993c)
 
 ## Features
 
@@ -48,40 +54,10 @@ https://github.com/user-attachments/assets/1b535746-b9ad-4a19-9cfd-30a841161b83
 - Google Sheets lead logging
 - Google Drive PDF archival
 
-##  System Design
 
-```
-┌─────────────────┐     POST /api/leads     ┌──────────────────┐
-│   Lead Intake    │ ──────────────────────► │   Express API    │
-│   Form (HTML)    │ ◄────── 202 Accepted ── │   Server         │
-└─────────────────┘                          └────────┬─────────┘
-                                                      │ (async pipeline)
-                                                      ▼
-                                             ┌──────────────────┐
-                                             │  1. Enrichment   │
-                                             │  - Web Scraping  │
-                                             │  - Gemini AI     │
-                                             └────────┬─────────┘
-                                                      ▼
-                                             ┌──────────────────┐
-                                             │  2. PDF Report   │
-                                             │  - Puppeteer     │
-                                             │  - HTML Template  │
-                                             └────────┬─────────┘
-                                                      ▼
-                                             ┌──────────────────┐
-                                             │  3. Email        │
-                                             │  - Nodemailer    │
-                                             │  - SMTP (Gmail)  │
-                                             └────────┬─────────┘
-                                                      ▼
-                                       ┌──────────────┴──────────────┐
-                                       ▼                              ▼
-                              ┌─────────────────┐          ┌─────────────────┐
-                              │ 4. Google Sheets │          │ 5. Google Drive  │
-                              │    (Logging)     │          │   (Archiving)    │
-                              └─────────────────┘          └─────────────────┘
-```
+
+
+
 
 
 ## Environment Variables(No need to setup Credential Key)
